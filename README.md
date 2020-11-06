@@ -37,3 +37,10 @@ showToast(
   offsetAnimationStart: Offset(-0.1, -0.1),  // Defines the starting position of the fly-in animation
 );
 ```
+
+# Screenshots
+
+![Android image 1](screenshots/android1.png)
+![Android image 2](screenshots/android2.png)
+![iOS image 1](screenshots/ios1.png)
+![iOS image 2](screenshots/ios2.png)

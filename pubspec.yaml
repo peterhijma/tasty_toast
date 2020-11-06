@@ -1,7 +1,7 @@
 name: tasty_toast
 description: Simple toasts which fade in and out.
 version: 0.1.0
-homepage: https://github.com/phijma
+homepage: https://github.com/phijma/tasty_toast
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

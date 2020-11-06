@@ -42,7 +42,11 @@ showToast(
 
 # Screenshots
 
-![Android image 1](screenshots/android1.png)
-![Android image 2](screenshots/android2.png)
-![iOS image 1](screenshots/ios1.png)
-![iOS image 2](screenshots/ios2.png)
+Here two screenshots for iOS / Android, of course you can show the default or customize the toasts on both devices.
+
+#### iOS screenshot with default settings:
+![iOS default](screenshots/ios_default.png)
+
+#### Android screenshot with customized parameters:
+![Android custom](screenshots/android_custom.png)
+

@@ -1,7 +1,6 @@
 name: tasty_toast
 description: Simple toasts which fade in and out.
 version: 0.1.0
-author: Peter Hijma
 homepage: https://github.com/phijma
 
 environment:

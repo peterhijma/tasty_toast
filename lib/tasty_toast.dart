@@ -2,7 +2,8 @@ library tasty_toast;
 
 import 'package:flutter/material.dart';
 
-final Map<ToastWidget, OverlayEntry> _toastWithCorrespondingOverlayEntry = <ToastWidget, OverlayEntry>{};
+final Map<ToastWidget, OverlayEntry> _toastWithCorrespondingOverlayEntry =
+    <ToastWidget, OverlayEntry>{};
 OverlayState _overlayState;
 
 void showToast(
@@ -32,13 +33,15 @@ void showToast(
     offsetAnimationStart: offsetAnimationStart,
   );
 
-  final OverlayEntry overlayEntry = OverlayEntry(builder: (BuildContext context) => toast);
+  final OverlayEntry overlayEntry =
+      OverlayEntry(builder: (BuildContext context) => toast);
   _overlayState.insert(overlayEntry);
   _toastWithCorrespondingOverlayEntry[toast] = overlayEntry;
 }
 
-void removeOverlayEntry({ToastWidget toastWidget}) {
-  final OverlayEntry overlayEntry = _toastWithCorrespondingOverlayEntry.remove(toastWidget);
+void _removeOverlayEntry({ToastWidget toastWidget}) {
+  final OverlayEntry overlayEntry =
+      _toastWithCorrespondingOverlayEntry.remove(toastWidget);
   overlayEntry?.remove();
 }
 
@@ -70,7 +73,8 @@ class ToastWidget extends StatefulWidget {
   void hide() => state.hide();
 }
 
-class _ToastWidgetState extends State<ToastWidget> with SingleTickerProviderStateMixin {
+class _ToastWidgetState extends State<ToastWidget>
+    with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _opacityAnimation;
   Animation<Offset> _offsetAnimation;
@@ -81,7 +85,7 @@ class _ToastWidgetState extends State<ToastWidget> with SingleTickerProviderStat
     if (!_isHiding && mounted) {
       _isHiding = true;
       await _animationController.reverse();
-      removeOverlayEntry(toastWidget: widget);
+      _removeOverlayEntry(toastWidget: widget);
     }
   }
 

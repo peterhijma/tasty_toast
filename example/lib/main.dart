@@ -39,22 +39,22 @@ class MyHomePage extends StatelessWidget {
             RaisedButton(
               onPressed: () {
                 var customTextStyle = TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w400,
                   fontSize: 18,
-                  color: Colors.white,
+                  color: Colors.grey[800],
                 );
 
                 var customBackground = BoxDecoration(
                   border: Border.all(
-                    color: Colors.black,
-                    width: 8.0,
+                    color: Colors.grey[400],
+                    width: 1.0,
                   ),
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Colors.blue[900],
-                      Colors.blue[200],
+                      Colors.grey[100],
+                      Colors.grey[300],
                     ],
                   ),
                   borderRadius: BorderRadius.circular(50.0),
@@ -62,14 +62,14 @@ class MyHomePage extends StatelessWidget {
 
                 showToast(
                   context,
-                  "Fully customized (very ugly)",
+                  "Fully customized",
 
                   // Optional parameters:
                   alignment: Alignment.centerLeft,
                   textStyle: customTextStyle,
                   background: customBackground,
                   duration: Duration(seconds: 5),
-                  padding: EdgeInsets.all(25.0),
+                  padding: EdgeInsets.all(16.0),
                   offsetAnimationStart: Offset(-0.1, -0.1),
                 );
               },

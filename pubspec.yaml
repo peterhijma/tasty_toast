@@ -1,5 +1,5 @@
 name: tasty_toast
-description: Simple toasts which fade in and out.
+description: Simple toasts which fade in and out. Simple by default, but also customizable.
 version: 0.1.0
 homepage: https://github.com/phijma/tasty_toast
 

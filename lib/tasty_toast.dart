@@ -6,6 +6,10 @@ final Map<ToastWidget, OverlayEntry> _toastWithCorrespondingOverlayEntry =
     <ToastWidget, OverlayEntry>{};
 OverlayState _overlayState;
 
+/// Displays the toast.
+///
+/// The only method which is called. Only the [context] and [message] are
+/// required, the rest is optional.
 void showToast(
   BuildContext context,
   String message, {
@@ -45,6 +49,10 @@ void _removeOverlayEntry({ToastWidget toastWidget}) {
   overlayEntry?.remove();
 }
 
+/// The widget itself, which is a [StatefulWidget] due to animations.
+///
+/// This widget should not be instantiated directly,
+/// but by the `showToast` function
 class ToastWidget extends StatefulWidget {
   final String message;
   final Duration duration;
@@ -80,6 +88,7 @@ class _ToastWidgetState extends State<ToastWidget>
   Animation<Offset> _offsetAnimation;
   bool _isHiding = false;
 
+  /// This method hides the widget, if it is not already fading out.
   Future<void> hide() async {
     // Make sure that the widget is currently in the tree and that it is not hiding already.
     if (!_isHiding && mounted) {
@@ -104,7 +113,7 @@ class _ToastWidgetState extends State<ToastWidget>
 
     // Positional animation
     _offsetAnimation = Tween<Offset>(
-      begin: widget.offsetAnimationStart ?? getBeginOffset(),
+      begin: widget.offsetAnimationStart ?? _getBeginOffset(),
       end: Offset.zero,
     ).animate(_animationController);
 
@@ -166,7 +175,8 @@ class _ToastWidgetState extends State<ToastWidget>
     super.dispose();
   }
 
-  Offset getBeginOffset() {
+  /// Determines the starting point of the toast (for the animation).
+  Offset _getBeginOffset() {
     final String alignment = widget.alignment.toString().toLowerCase();
     if (alignment.contains("top")) {
       return const Offset(0.0, -0.01);

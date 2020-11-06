@@ -7,8 +7,6 @@ You can easily customize the toast by providing a `TextStyle` for the text or `B
 
 ## Getting Started
 
-Install this package.
-
 #### Import tasty toast:
 ```dart
 import 'package:tasty_toast/tasty_toast.dart';

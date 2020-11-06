@@ -40,25 +40,29 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 var customTextStyle = TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 18,
                   color: Colors.white,
                 );
 
                 var customBackground = BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 8.0,
+                  ),
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFF00AEFF),
-                      Color(0xFF0076FF),
+                      Colors.blue[900],
+                      Colors.blue[200],
                     ],
                   ),
-                  borderRadius: BorderRadius.circular(41.0),
+                  borderRadius: BorderRadius.circular(50.0),
                 );
 
                 showToast(
                   context,
-                  "Fully customized",
+                  "Fully customized (very ugly)",
 
                   // Optional parameters:
                   alignment: Alignment.centerLeft,

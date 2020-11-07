@@ -9,6 +9,8 @@ You can easily customize the toast by providing a `TextStyle` for the text or `B
 
 ! You will need a `context`.
 
+(The toasts will be visible after switching screens as well.)
+
 ## Getting Started
 
 #### Import tasty toast:
@@ -42,13 +44,10 @@ showToast(
 );
 ```
 
-# Screenshots
+# See in action
 
-Here two screenshots for iOS / Android, of course you can show the default or customize the toasts on both devices.
+#### Android screen recording with a default and custom toast
 
-#### iOS screenshot with default settings:
-![iOS default](screenshots/ios_default.png)
-
-#### Android screenshot with customized parameters:
-![Android custom](screenshots/android_custom.png)
+Clicking like a mad man to show the behaviour when multiple toasts following up each other.
+![iOS default](screenshots/tasty_toast_demo.gif)
 

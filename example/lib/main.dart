@@ -28,15 +28,16 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            RaisedButton(
+            ElevatedButton(
               onPressed: () => showToast(
                 context,
                 "Default toast",
               ),
               child: Text("Show default toast!"),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 var customTextStyle = TextStyle(
                   fontWeight: FontWeight.w400,

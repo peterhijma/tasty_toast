@@ -1,3 +1,8 @@
+## [1.0.0] - 28-08-2021
+
+* Migrated to null-safety
+
+
 ## [0.1.2] - 06-11-2020
 
 * GIF instead of screenshots

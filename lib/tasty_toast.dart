@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 final Map<ToastWidget, OverlayEntry> _toastWithCorrespondingOverlayEntry =
     <ToastWidget, OverlayEntry>{};
-OverlayState _overlayState;
+OverlayState? _overlayState;
 
 /// Displays the toast.
 ///
@@ -15,10 +15,10 @@ void showToast(
   String message, {
   Duration duration = const Duration(seconds: 2),
   Alignment alignment = Alignment.bottomCenter,
-  TextStyle textStyle,
-  BoxDecoration background,
-  EdgeInsets padding,
-  Offset offsetAnimationStart,
+  TextStyle? textStyle,
+  BoxDecoration? background,
+  EdgeInsets? padding,
+  Offset? offsetAnimationStart,
 }) {
   // Only initialize once. I *think* this is safe to do.
   _overlayState ??= Overlay.of(context);
@@ -39,14 +39,14 @@ void showToast(
 
   final OverlayEntry overlayEntry =
       OverlayEntry(builder: (BuildContext context) => toast);
-  _overlayState.insert(overlayEntry);
+  _overlayState!.insert(overlayEntry);
   _toastWithCorrespondingOverlayEntry[toast] = overlayEntry;
 }
 
-void _removeOverlayEntry({ToastWidget toastWidget}) {
+void _removeOverlayEntry(ToastWidget toastWidget) {
   final OverlayEntry overlayEntry =
-      _toastWithCorrespondingOverlayEntry.remove(toastWidget);
-  overlayEntry?.remove();
+      _toastWithCorrespondingOverlayEntry.remove(toastWidget)!;
+  overlayEntry.remove();
 }
 
 /// The widget itself, which is a [StatefulWidget] due to animations.
@@ -55,22 +55,22 @@ void _removeOverlayEntry({ToastWidget toastWidget}) {
 /// but by the `showToast` function
 class ToastWidget extends StatefulWidget {
   final String message;
-  final Duration duration;
+  final Duration? duration;
   final Alignment alignment;
-  final TextStyle textStyle;
-  final BoxDecoration background;
-  final EdgeInsets padding;
-  final Offset offsetAnimationStart;
+  final TextStyle? textStyle;
+  final BoxDecoration? background;
+  final EdgeInsets? padding;
+  final Offset? offsetAnimationStart;
 
   ToastWidget({
-    this.message,
+    required this.message,
     this.duration,
-    this.alignment,
+    required this.alignment,
     this.textStyle,
     this.background,
     this.padding,
     this.offsetAnimationStart,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final _ToastWidgetState state = _ToastWidgetState();
@@ -83,9 +83,10 @@ class ToastWidget extends StatefulWidget {
 
 class _ToastWidgetState extends State<ToastWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<double> _opacityAnimation;
-  Animation<Offset> _offsetAnimation;
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
+  late Animation<Offset> _offsetAnimation;
+
   bool _isHiding = false;
 
   /// This method hides the widget, if it is not already fading out.
@@ -94,7 +95,7 @@ class _ToastWidgetState extends State<ToastWidget>
     if (!_isHiding && mounted) {
       _isHiding = true;
       await _animationController.reverse();
-      _removeOverlayEntry(toastWidget: widget);
+      _removeOverlayEntry(widget);
     }
   }
 
